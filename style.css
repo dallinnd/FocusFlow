@@ -1,0 +1,212 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --accent: #bb86fc;
+    --text: #ffffff;
+    --text-dim: #b3b3b3;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* Prevent body scroll */
+}
+
+/* Screen Management */
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: opacity 0.3s;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Home Screen */
+#saved-flows-list {
+    flex: 1;
+    overflow-y: auto;
+    margin: 20px 0;
+}
+
+.flow-card {
+    background: var(--card-bg);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.primary-btn {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Mixer Screen */
+.slots-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 15px;
+    flex: 1;
+    overflow-y: auto;
+    align-content: start;
+    padding-bottom: 80px; /* Space for controls */
+}
+
+@media (min-width: 600px) {
+    .slots-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 cols on tablet */
+    }
+}
+@media (min-width: 900px) {
+    .slots-container {
+        grid-template-columns: repeat(6, 1fr); /* 6 cols on desktop */
+    }
+}
+
+.slot-box {
+    background: var(--card-bg);
+    border-radius: 16px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid transparent;
+    transition: border 0.2s;
+}
+
+.slot-box.active {
+    border-color: var(--accent);
+}
+
+.add-btn {
+    font-size: 3rem;
+    color: var(--text-dim);
+    cursor: pointer;
+}
+
+/* Active Slot Styling */
+.slot-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.icon-area {
+    font-size: 2rem;
+    cursor: pointer; /* Click to change variation */
+}
+
+.slot-name {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+input[type=range] {
+    width: 80%;
+    accent-color: var(--accent);
+}
+
+/* Bottom Controls */
+.controls-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #181818;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    border-top: 1px solid #333;
+}
+
+.play-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.modal-content {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 16px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+.sound-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+.sound-option {
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    margin-top: 10px;
+}
