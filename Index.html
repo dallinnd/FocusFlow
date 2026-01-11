@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Flow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="home-screen" class="screen active">
+        <header>
+            <h1>Focus Flow</h1>
+            <p>Your ambient soundscapes</p>
+        </header>
+        
+        <div id="saved-flows-list">
+            <p class="empty-msg">No saved flows yet.</p>
+        </div>
+
+        <button id="btn-create-flow" class="primary-btn">Create New Flow</button>
+    </div>
+
+    <div id="mixer-screen" class="screen hidden">
+        <header>
+            <h2 id="mixer-title">New Flow</h2>
+        </header>
+
+        <div class="slots-container" id="slots-grid">
+            </div>
+
+        <div class="controls-bar">
+            <button id="btn-back" class="icon-btn">← Back</button>
+            <button id="btn-play-pause" class="play-btn">▶ Play</button>
+            <button id="btn-save" class="icon-btn">💾 Save</button>
+        </div>
+    </div>
+
+    <div id="sound-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Select Sound Type</h3>
+            <div id="sound-options" class="sound-grid">
+                </div>
+            <button id="btn-close-modal" class="text-btn">Cancel</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
